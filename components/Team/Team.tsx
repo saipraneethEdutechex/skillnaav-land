@@ -81,7 +81,7 @@ const Team = () => {
     },
   ];
 
-  const handleSelect = (selectedIndex) => {
+  const handleSelect = (selectedIndex: React.SetStateAction<number>) => {
     setCurrentIndex(selectedIndex);
   };
 
