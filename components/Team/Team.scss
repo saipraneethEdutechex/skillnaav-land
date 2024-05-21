@@ -3,11 +3,18 @@
   .carousel-control-next {
     opacity: 1;
     color: #3b5998; /* Adjust the color to match your website's theme */
+    background-color: transparent; /* Set background color to transparent */
+    border: none; /* Remove border */
+    font-size: 24px; /* Adjust font size as needed */
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    top: 50%; /* Position in the middle vertically */
+    transform: translateY(-50%); /* Center vertically */
   }
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    filter: invert(1); // Invert the color of the arrow icon
+    filter: invert(1); /* Invert the color of the arrow icon */
   }
 
   .carousel-indicators {
