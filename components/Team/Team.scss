@@ -2,19 +2,19 @@
   .carousel-control-prev,
   .carousel-control-next {
     opacity: 1;
-    color: #3b5998; /* Adjust the color to match your website's theme */
-    background-color: transparent; /* Set background color to transparent */
-    border: none; /* Remove border */
-    font-size: 24px; /* Adjust font size as needed */
-    width: 40px; /* Adjust width as needed */
-    height: 40px; /* Adjust height as needed */
-    top: 50%; /* Position in the middle vertically */
-    transform: translateY(-50%); /* Center vertically */
+    color: #3b5998;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    filter: invert(1); /* Invert the color of the arrow icon */
+    filter: invert(1);
   }
 
   .carousel-indicators {
@@ -27,7 +27,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #3b5998; /* Adjust the color to match your website's theme */
+      background-color: #3b5998;
       border: 2px solid #fff;
       cursor: pointer;
 
@@ -38,10 +38,11 @@
   }
 
   .card {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Ensures equal spacing between cards */
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -95,6 +96,13 @@
     .linkedin-icon {
       display: inline-block;
       margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      margin: 10px;
+      padding: 15px;
     }
   }
 }

@@ -7,6 +7,7 @@ import { Pricing } from "@/components/Pricing";
 import Team from "@/components/Team/Team";
 import { Footer } from "@/components/Footer";
 import Head from "next/head";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Faq />
         <Team />
         <Pricing />
+        <ContactForm />
         <Footer />
       </div>
     </>

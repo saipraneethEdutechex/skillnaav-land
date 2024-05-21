@@ -16,22 +16,24 @@ const Navbar = () => {
     <nav className="flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20">
       <div className="flex items-center justify-between gap-x-5">
         <Link href="/">
-          <Image className="w-[150px]" src={SkillNaavLogo} alt="logo" />
+          <div>
+            <Image className="w-[150px]" src={SkillNaavLogo} alt="logo" />
+          </div>
         </Link>
         <div className="hidden lg:flex pl-[74px] gap-x-[56px]">
           {navLinks.map((item, index) => (
-            <a key={index} href={item.href}>
-              <p className="text-[#36485C] font-medium">{item.name}</p>
-            </a>
+            <Link key={index} href={item.href}>
+              <div className="text-[#36485C] font-medium">{item.name}</div>
+            </Link>
           ))}
         </div>
       </div>
 
-      <div className="flex gap-x-5">
-        <Link href="/">
-          <p className="hidden lg:block font-medium text-[#36485C] pr-[56px]">
+      <div className="flex gap-x-5 items-center">
+        <Link href="#contacts">
+          <div className="hidden lg:block font-medium text-white bg-[#451E5D] hover:bg-[#2c3b4e] px-4 py-2 rounded-md transition">
             Request A Call Back
-          </p>
+          </div>
         </Link>
         <Image className="lg:hidden" src={Menu} alt="Menu Button" />
       </div>
