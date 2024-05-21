@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Faq from "@/components/Faq";
 import { Pricing } from "@/components/Pricing";
-import Team from "@/components/Team";
+import Team from "@/components/Team/Team";
 import { Footer } from "@/components/Footer";
 import Head from "next/head";
 
