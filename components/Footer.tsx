@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <div className="pt-[80px] pb-[40px]">
       <div className="flex items-center justify-center gap-x-[12px]">
-        <Image className="w-[120px]" src={SkillNaavLogo} alt="Logo" />
+        <Image className="w-[200px]" src={SkillNaavLogo} alt="Logo" />
       </div>
 
       <ul className="flex flex-col items-center gap-y-[32px] pt-[56px] text-[#36485C] sm:flex-row sm:justify-center sm:gap-x-5 sm:pt-5">
