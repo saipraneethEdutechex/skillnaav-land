@@ -12,8 +12,8 @@ const ContactForm: React.FC = () => {
             Contact Us
           </h1>
           <p className="mt-2 text-center text-sm text-gray-600">
-            We'd love to hear from you, please drop us a line if you've any
-            query.
+            We&apos;d love to hear from you, please drop us a line if
+            you&apos;ve any query.
           </p>
         </div>
         <form className="mt-8 space-y-6" action="#" method="POST">
