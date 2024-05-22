@@ -1,85 +1,94 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 
-const ContactForm: React.FC = () => {
+export default function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log("Form submitted!");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Subject:", subject);
+    console.log("Message:", message);
+  };
+
   return (
     <div
       id="contacts"
-      className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8"
+      className="mt-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg overflow-hidden shadow-lg"
     >
-      <div className="max-w-lg w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
-        <div>
-          <h1 className="text-[#172026] text-center font-medium p-4  text-2xl lg:text-[42px]">
-            Contact Us
+      <div className="flex flex-col lg:flex-row">
+        {/* Left Section */}
+        <div className="w-full lg:w-1/2 py-10 px-8 lg:p-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 flex flex-col justify-center items-center">
+          <h1 className="text-white text-4xl lg:text-5xl font-bold mb-6 text-center">
+            Have Questions? Get in Touch
           </h1>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            We&apos;d love to hear from you, please drop us a line if
-            you&apos;ve any query.
+          <p className="text-white text-lg mb-6 text-center">
+            AITECHEX Quantum Innovative Solutions Pvt. Ltd.
+            <br />
+            Hi-tech City, Hyderabad 500081
+            <br />
+            +91 7330841818
+            <br />
+            <a
+              href="mailto:info@navigatebi.com"
+              className="text-white font-medium"
+            >
+              info@navigatebi.com
+            </a>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Your Name"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Your Email"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                //   rows="4"
-                required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Your Message"
-              ></textarea>
-            </div>
-          </div>
 
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Send Message
-            </button>
-          </div>
+        {/* Right Section */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full lg:w-1/2 py-10 px-8 lg:p-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500"
+        >
+          <h2 className="text-white text-3xl lg:text-4xl font-bold mb-8 text-center">
+            Contact Us
+          </h2>
+          <input
+            type="text"
+            placeholder="Enter Your Name*"
+            className="w-full py-3 px-4 bg-white rounded-md text-lg text-gray-800 mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Enter Your Email*"
+            className="w-full py-3 px-4 bg-white rounded-md text-lg text-gray-800 mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Your Question About.."
+            className="w-full py-3 px-4 bg-white rounded-md text-lg text-gray-800 mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <textarea
+            placeholder="Your Message..."
+            className="w-full py-3 px-4 bg-white rounded-md text-lg text-gray-800 mb-6 h-32 focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+          <button
+            type="submit"
+            className="py-4 px-8 bg-white rounded-md text-pink-500 text-lg font-medium hover:bg-pink-100 focus:outline-none focus:ring-2 focus:ring-pink-500"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
   );
-};
-
-export default ContactForm;
+}
