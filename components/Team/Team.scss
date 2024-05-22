@@ -12,9 +12,35 @@
     transform: translateY(-50%);
   }
 
+  .carousel-control-prev {
+    left: -50px;
+  }
+
+  .carousel-control-next {
+    right: -50px;
+  }
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     filter: invert(1);
+    background-size: 100%, 100%;
+    background-image: none;
+    background-color: #3b5998;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .carousel-control-prev-icon::before {
+    content: "\f053";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+
+  .carousel-control-next-icon::before {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
   }
 
   .carousel-indicators {
@@ -42,7 +68,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Ensures equal spacing between cards */
+    justify-content: space-between;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;

@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Skillnaav - Tailored Internship Platform</title>
+        <title>Skill Naav - Navigate Your Skills</title>
         <meta name="description" content="This is the homepage of your app" />
       </Head>
       <Hero />
