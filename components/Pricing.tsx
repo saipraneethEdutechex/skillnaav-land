@@ -1,15 +1,14 @@
 import Image from "next/image";
 import Check from "@/public/assets/check.svg";
+import Link from "next/link";
 
 export function Pricing() {
   return (
-    <div id="pricing" className="py-12 lg:py-16">
+    <div id="pricing" className="py-12 my-12 pb-12 lg:py-16">
       <h1 className="text-center font-medium text-2xl lg:text-4xl text-gray-900">
         Choose the Perfect Plan for You
       </h1>
-      <p className="pt-4 pb-10 text-center text-gray-600 lg:text-lg">
-        {/* No hidden fees! */}
-      </p>
+      <p className="pt-4 pb-10 text-center text-gray-600 lg:text-lg"></p>
       <div className="flex flex-col gap-6 lg:flex-row">
         <div className="w-full bg-teal-100 p-6 flex flex-col justify-between shadow-lg rounded-lg">
           <div>
@@ -81,9 +80,11 @@ export function Pricing() {
             <p className="pt-3 text-orange-900 lg:text-lg">
               Best for educational institutions
             </p>
+
             <h2 className="pt-4 text-2xl font-medium text-orange-700 lg:text-3xl">
               Contact Us
             </h2>
+
             <ul className="flex flex-col gap-2 pt-4 text-orange-900">
               <li className="flex items-center gap-2">
                 <Image src={Check} alt="included" width={16} height={16} />
@@ -99,9 +100,11 @@ export function Pricing() {
               </li>
             </ul>
           </div>
-          <button className="mt-4 bg-white py-3 text-orange-700 font-medium rounded hover:bg-orange-200 transition">
-            Contact Us
-          </button>
+          <Link href={"#contacts"}>
+            <div className="mt-4 bg-white py-3 text-center text-orange-700 font-medium rounded hover:bg-orange-200 transition">
+              Contact Us
+            </div>
+          </Link>
         </div>
       </div>
     </div>

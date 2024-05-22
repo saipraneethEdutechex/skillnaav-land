@@ -19,7 +19,7 @@ export default function ContactForm() {
   return (
     <div
       id="contacts"
-      className="mt-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg overflow-hidden shadow-lg"
+      className=" bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg overflow-hidden shadow-lg"
     >
       <div className="flex flex-col lg:flex-row">
         {/* Left Section */}
