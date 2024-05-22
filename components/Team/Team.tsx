@@ -2,91 +2,95 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { StaticImageData } from "next/image";
 import Christopher from "@/public/assets/christopher_Img.jpg";
 import RamK from "@/public/assets/ramK_img.png";
 import Jyothsna from "@/public/assets/jyothsnaV_img.jpeg";
 import Shweta from "@/public/assets/ShwetaKinra.jpeg";
 import Akansha from "@/public/assets/Akansha.jpeg";
-import LinkedInIcon from "@/public/assets/Linkedin.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  position: string;
+  description: string;
+  linkedin: string;
+  imageUrl: StaticImageData;
+  points: string[];
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: "Dr. Ram K Aluru",
     position: "C.E.O / C.T.O",
     description:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Expert in Quantum Physics with a PhD from St Andrews, Scotland, UK. Over 10 years of experience in R&D and Quantum Technologies.",
     linkedin: "https://www.linkedin.com/in/dr-ram-k-aluru-77608a3b/",
     imageUrl: RamK,
     points: [
-      "Lorem ipsum dolor sit amet",
-      "Consectetur adipiscing elit",
-      "Sed do eiusmod tempor",
+      "PhD in Quantum Physics, St Andrews, Scotland, UK",
+      "10+ years in R&D and Quantum Technologies",
     ],
   },
   {
     name: "Ms. Shweta Kinra",
-    position: "Head University Outreach",
+    position: "Head, University Outreach",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "PhD in Textiles and Clothing, Delhi University, India. 10+ years in university research and teaching.",
     linkedin: "https://www.linkedin.com/in/shweta-kinra-17b88916/",
     imageUrl: Shweta,
     points: [
-      "Duis aute irure dolor in reprehenderit",
-      "Voluptate velit esse cillum dolore",
-      "Excepteur sint occaecat cupidatat non proident",
+      "PhD in Textiles and Clothing, Delhi University, India",
+      "10+ years in university research and teaching",
     ],
   },
   {
-    name: "Christopher Jadhav",
+    name: "Ms. Hem Ranjani",
     position: "Head, HR & Schools BD",
     description:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
     linkedin: "https://www.linkedin.com/in/johndoe/",
     imageUrl: Christopher,
     points: [
-      "Nemo enim ipsam voluptatem",
-      "Sed quia non numquam eius modi",
-      "Neque porro quisquam est",
+      "M.Sc. in Agrochemicals & PG Diploma in HR Management",
+      "10+ years teaching at IGCSE and IB Schools",
     ],
   },
   {
-    name: "Mr. Jyothsna",
+    name: "Mr. Krishna Pillai",
     position: "Head, Market Research",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "MA & MBA Madurai Kamraj University, India. 15+ years in Industrial Supply chain production and planning.",
     linkedin: "https://www.linkedin.com/in/alicejohnson/",
     imageUrl: Jyothsna,
     points: [
-      "Duis aute irure dolor in reprehenderit",
-      "Voluptate velit esse cillum dolore",
-      "Excepteur sint occaecat cupidatat non proident",
+      "MA & MBA Madurai Kamraj University, India",
+      "15+ years in Industrial Supply chain production",
     ],
   },
   {
     name: "Ms. Akankasha Chugh",
     position: "Head, Operations Coordination",
     description:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "M.Sc. in Food Science & Nutrition Allahabad University, India. 5+ years in global events management across countries.",
     linkedin: "https://www.linkedin.com/in/akanksha-chugh-974813284/",
     imageUrl: Akansha,
     points: [
-      "Nemo enim ipsam voluptatem",
-      "Sed quia non numquam eius modi",
-      "Neque porro quisquam est",
+      "M.Sc. in Food Science & Nutrition Allahabad University, India",
+      "5+ years in global events management",
     ],
   },
 ];
 
-const Team = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Team: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const handleSelect = (selectedIndex: React.SetStateAction<number>) => {
+  const handleSelect = (selectedIndex: number) => {
     setCurrentIndex(selectedIndex);
   };
 
   const renderTeamMembers = () => {
-    const groups = [];
+    const groups: TeamMember[][] = [];
     for (let i = 0; i < teamMembers.length; i += 3) {
       groups.push(teamMembers.slice(i, i + 3));
     }
@@ -104,6 +108,7 @@ const Team = () => {
         interval={5000}
         controls={true}
         indicators={true}
+        className="team-carousel"
         prevIcon={<span className="carousel-control-prev-icon" />}
         nextIcon={<span className="carousel-control-next-icon" />}
       >
@@ -128,18 +133,12 @@ const Team = () => {
                     {member.name}
                   </h3>
                   <p className="text-gray-600">{member.position}</p>
-                  <p className="text-gray-500 my-4">{member.description}</p>
+                  <p className="text-gray-700 mb-4">{member.description}</p>
                   <ul className="text-left text-gray-700 space-y-2">
                     {member.points.map((point, i) => (
                       <li key={i} className="flex items-center">
-                        <Image
-                          src={LinkedInIcon}
-                          alt="Check"
-                          width={16}
-                          height={16}
-                          className="mr-2"
-                        />
-                        {point}
+                        <div className="bullet mr-2" />
+                        <span>{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -147,14 +146,9 @@ const Team = () => {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-block"
+                    className="mt-4 inline-block underline text-blue-500 hover:text-blue-700"
                   >
-                    <Image
-                      src={LinkedInIcon}
-                      alt="LinkedIn"
-                      width={30}
-                      height={30}
-                    />
+                    LinkedIn
                   </a>
                 </div>
               ))}
