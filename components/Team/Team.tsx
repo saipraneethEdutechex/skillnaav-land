@@ -104,7 +104,8 @@ const Team = () => {
         interval={5000}
         controls={true}
         indicators={true}
-       // pauseOnHover={true}
+        prevIcon={<span className="carousel-control-prev-icon" />}
+        nextIcon={<span className="carousel-control-next-icon" />}
       >
         {renderTeamMembers().map((group, index) => (
           <Carousel.Item key={index}>
