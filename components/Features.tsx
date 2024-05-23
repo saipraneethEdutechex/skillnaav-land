@@ -3,7 +3,7 @@ import Check from "@/public/assets/check.svg";
 import Sitting from "@/public/assets/Feature1Img.png";
 import Professional from "@/public/assets/Feature3Img.png";
 import GlobeOpportunities from "@/public/assets/Feature4Img.png";
-
+import Aerospace from "@/public/assets/aerospace.jpg";
 // Import Button Components or define their paths
 import BlueButton from "@/public/assets/blue-button.svg";
 import PinkButton from "@/public/assets/pink-button.svg";
@@ -18,11 +18,11 @@ const Features = () => {
       <div className="flex flex-col gap-x-6 sm:flex-row-reverse">
         <div className="relative w-full sm:w-1/2 lg:pr-12">
           <Image
-            src={Sitting}
+            src={Aerospace}
             alt="Feature 1 Image"
             layout="responsive"
             width={600}
-            height={400}
+            height={410}
           />
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pr-12">
@@ -77,7 +77,9 @@ const Features = () => {
             height={400}
           />
         </div>
-        <div className="sm:w-1/2 lg:py-8 lg:pl-12">
+        <div className="sm:w-1/2 lg:py-8 lg:pl-12 sm:pr-8">
+          {" "}
+          {/* Added sm:pr-8 */}
           <h3 className="font-medium text-pink-600 lg:text-lg">
             Professional Support
           </h3>
