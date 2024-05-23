@@ -7,9 +7,11 @@ import RamK from "@/public/assets/ramK_img.png";
 import KPillai from "@/public/assets/krishnaPillai.jpeg";
 import Shweta from "@/public/assets/ShwetaKinra.jpeg";
 import Akansha from "@/public/assets/Akansha.jpeg";
+import Linkedin from "@/public/assets/linkedin.png";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 interface TeamMember {
   name: string;
@@ -204,14 +206,20 @@ const SliderComponent: React.FC = () => {
                   <li key={index}>{point}</li>
                 ))}
               </ul>
-              <a
-                href={selectedMember.linkedin}
+              {/* <a
                 className="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-blue-700 mt-4"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 View LinkedIn
-              </a>
+              </a> */}
+              <Link
+                className=" text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-blue mt-4"
+                href={selectedMember.linkedin}
+              >
+                <Image src={Linkedin} alt={""} />
+              </Link>
+
               <button
                 onClick={closeModal}
                 className="mt-4 bg-red-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-red-700"
