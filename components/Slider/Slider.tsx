@@ -82,7 +82,6 @@ const teamMembers: TeamMember[] = [
     ],
   },
 ];
-
 const SliderComponent: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
@@ -104,6 +103,8 @@ const SliderComponent: React.FC = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+    centerMode: true,
+    centerPadding: "60px",
     responsive: [
       {
         breakpoint: 1024,
@@ -117,6 +118,7 @@ const SliderComponent: React.FC = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: false,
         },
       },
     ],
@@ -125,7 +127,7 @@ const SliderComponent: React.FC = () => {
   return (
     <div
       id="team"
-      className="w-full h-full  flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
+      className="w-full h-auto flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 lg:py-16  gap-8 md:gap-10 lg:gap-12 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
     >
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center">
         Meet Our Team
@@ -139,28 +141,32 @@ const SliderComponent: React.FC = () => {
         <Slider {...settings}>
           {teamMembers.map((item, index) => (
             <div
-              className="bg-white p-6 md:p-8 lg:p-10 rounded-xl flex flex-col justify-center items-center shadow-lg h-auto md:h-[500px] lg:h-[600px]"
+              className="bg-white p-6 md:p-8 lg:p-10 rounded-xl flex flex-col justify-between items-center shadow-lg"
               key={index}
             >
-              <div className="bg-green-100 p-4 md:p-6 rounded-full">
-                <Image
-                  className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
-                  src={item.imageUrl}
-                  alt={item.name}
-                  width={200}
-                  height={200}
-                />
+              <div className="flex flex-col justify-center items-center">
+                <div className="bg-green-100 rounded-full overflow-hidden">
+                  <Image
+                    className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
+                    src={item.imageUrl}
+                    alt={item.name}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+                <div className="flex flex-col justify-center items-center gap-3 md:gap-6 mt-6">
+                  <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold">
+                    {item.name}
+                  </h1>
+                  <p className="text-sm md:text-base text-center text-gray-600">
+                    {item.position}
+                  </p>
+                  <p className="text-sm md:text-base text-center text-gray-700">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col justify-center items-center gap-3 md:gap-6 mt-6">
-                <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold">
-                  {item.name}
-                </h1>
-                <p className="text-sm md:text-base text-center text-gray-600">
-                  {item.position}
-                </p>
-                <p className="text-sm md:text-base text-center text-gray-700">
-                  {item.description}
-                </p>
+              <div className="mt-auto">
                 <button
                   onClick={() => openModal(item)}
                   className="bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-green-700"
@@ -190,7 +196,7 @@ const SliderComponent: React.FC = () => {
                 width={200}
                 height={200}
               />
-              <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold mt-4">
+              <h1 className="text-lg md:text-xl lg:text-2xl text -gray-900 font-bold mt-4">
                 {selectedMember.name}
               </h1>
               <p className="text-sm md:text-base text-center text-gray-600">
