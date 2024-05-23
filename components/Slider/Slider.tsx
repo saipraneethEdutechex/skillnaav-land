@@ -125,7 +125,10 @@ const SliderComponent: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600">
+    <div
+      id="team"
+      className="w-full h-full flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
+    >
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center mb-4">
         Meet Our Team
       </h1>
@@ -205,10 +208,10 @@ const SliderComponent: React.FC = () => {
                 ))}
               </ul>
               <Link href={selectedMember.linkedin} passHref>
-                <a className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 mt-4">
+                <div className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 mt-4">
                   <Image src={Linkedin} alt="LinkedIn" width={20} height={20} />
                   <span className="ml-2">Connect on LinkedIn</span>
-                </a>
+                </div>
               </Link>
               <button
                 onClick={closeModal}
