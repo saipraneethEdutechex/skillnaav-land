@@ -116,7 +116,7 @@ export function Footer() {
 
         {/* Copyright Text */}
         <div className="mt-8 text-center md:text-left text-sm text-gray-800">
-          <p>&copy; Copyright SkillNaav 2023. All Rights Reserved</p>
+          <p>&copy; Copyright SkillNaav 2024. All Rights Reserved</p>
           <p>
             <Link href="#" className="hover:text-gray-600">
               Privacy Policy

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import Slider from "react-slick";
 import Modal from "react-modal";
-import Christopher from "@/public/assets/christopher_Img.jpg";
+import Hema from "@/public/assets/HemaRanjini.jpeg";
 import RamK from "@/public/assets/ramK_img.png";
 import KPillai from "@/public/assets/krishnaPillai.jpeg";
-import Shweta from "@/public/assets/ShwetaKinra.jpeg";
+import Shweta from "@/public/assets/shwetaKinra.png";
 import Akansha from "@/public/assets/Akansha.jpeg";
 import Linkedin from "@/public/assets/linkedin.png";
 
@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
     description:
       "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
     linkedin: "https://www.linkedin.com/in/hem-ranjani-826b021bb/",
-    imageUrl: Christopher,
+    imageUrl: Hema,
     points: [
       "M.Sc. in Agrochemicals & PG Diploma in HR Management",
       "10+ years teaching at IGCSE and IB Schools",
@@ -142,7 +142,7 @@ const SliderComponent: React.FC = () => {
           {teamMembers.map((item, index) => (
             <div key={index} className="w-full flex justify-center">
               <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs mx-auto">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6">
+                <div className="relative h-40 w-40 md:h-48 md:w-48 mx-auto mb-6 overflow-hidden rounded-full">
                   <Image
                     className="rounded-full"
                     src={item.imageUrl}
@@ -162,6 +162,7 @@ const SliderComponent: React.FC = () => {
                     <li key={i}>{point}</li>
                   ))}
                 </ul>
+
                 <button
                   onClick={() => openModal(item)}
                   className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold w-full hover:bg-green-700"
@@ -184,7 +185,7 @@ const SliderComponent: React.FC = () => {
         >
           <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg max-w-3xl w-full">
             <div className="flex flex-col items-center">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6">
+              <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6 overflow-hidden rounded-full">
                 <Image
                   className="rounded-full"
                   src={selectedMember.imageUrl}
@@ -193,6 +194,7 @@ const SliderComponent: React.FC = () => {
                   objectFit="cover"
                 />
               </div>
+
               <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold mt-4">
                 {selectedMember.name}
               </h1>
