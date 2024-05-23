@@ -99,7 +99,7 @@ const SliderComponent: React.FC = () => {
     setSelectedMember(null);
   };
 
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -125,47 +125,43 @@ const SliderComponent: React.FC = () => {
   };
 
   return (
-    <div
-      id="team"
-      className="w-full h-full  flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
-    >
-      <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center">
+    <div className="w-full h-full flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center mb-4">
         Meet Our Team
       </h1>
-      <p className="text-lg md:text-xl text-center text-white max-w-2xl">
+      <p className="text-lg md:text-xl text-white max-w-2xl text-center mb-8">
         Discover the brilliant minds behind our innovative solutions. Our team
         is composed of experienced professionals dedicated to pushing the
         boundaries of technology and research.
       </p>
-      <div className="w-full h-auto p-4 md:p-8 lg:p-12">
+      <div className="w-full">
         <Slider {...settings}>
           {teamMembers.map((item, index) => (
-            <div
-              className="bg-white p-6 md:p-8 lg:p-10 rounded-xl flex flex-col justify-center items-center shadow-lg h-auto md:h-[500px] lg:h-[600px]"
-              key={index}
-            >
-              <div className="bg-green-100 p-4 md:p-6 rounded-full">
-                <Image
-                  className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
-                  src={item.imageUrl}
-                  alt={item.name}
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center gap-3 md:gap-6 mt-6">
-                <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold">
+            <div key={index} className="w-full flex justify-center">
+              <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs mx-auto">
+                <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6">
+                  <Image
+                    className="rounded-full"
+                    src={item.imageUrl}
+                    alt={item.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <h1 className="text-xl md:text-2xl text-gray-900 font-bold mb-2 text-center">
                   {item.name}
                 </h1>
-                <p className="text-sm md:text-base text-center text-gray-600">
+                <p className="text-sm md:text-base text-center text-gray-600 mb-4">
                   {item.position}
                 </p>
-                <p className="text-sm md:text-base text-center text-gray-700">
-                  {item.description}
-                </p>
+                <ul className="text-sm md:text-base text-center text-gray-700 mb-4">
+                  {item.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
                 <button
                   onClick={() => openModal(item)}
-                  className="bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-green-700"
+                  className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold w-full hover:bg-green-700"
                 >
                   Read More
                 </button>
@@ -185,13 +181,15 @@ const SliderComponent: React.FC = () => {
         >
           <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg max-w-3xl w-full">
             <div className="flex flex-col items-center">
-              <Image
-                className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
-                src={selectedMember.imageUrl}
-                alt={selectedMember.name}
-                width={200}
-                height={200}
-              />
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6">
+                <Image
+                  className="rounded-full"
+                  src={selectedMember.imageUrl}
+                  alt={selectedMember.name}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold mt-4">
                 {selectedMember.name}
               </h1>
@@ -206,23 +204,15 @@ const SliderComponent: React.FC = () => {
                   <li key={index}>{point}</li>
                 ))}
               </ul>
-              {/* <a
-                className="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-blue-700 mt-4"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View LinkedIn
-              </a> */}
-              <Link
-                className=" text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-blue mt-4"
-                href={selectedMember.linkedin}
-              >
-                <Image src={Linkedin} alt={""} />
+              <Link href={selectedMember.linkedin} passHref>
+                <a className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 mt-4">
+                  <Image src={Linkedin} alt="LinkedIn" width={20} height={20} />
+                  <span className="ml-2">Connect on LinkedIn</span>
+                </a>
               </Link>
-
               <button
                 onClick={closeModal}
-                className="mt-4 bg-red-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-red-700"
+                className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700"
               >
                 Close
               </button>
