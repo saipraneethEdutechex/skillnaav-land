@@ -4,7 +4,6 @@ import Sitting from "@/public/assets/Feature1Img.png";
 import Professional from "@/public/assets/Feature3Img.png";
 import GlobeOpportunities from "@/public/assets/Feature4Img.png";
 import Aerospace from "@/public/assets/aerospace.jpg";
-// Import Button Components or define their paths
 import BlueButton from "@/public/assets/blue-button.svg";
 import PinkButton from "@/public/assets/pink-button.svg";
 import GreenButton from "@/public/assets/green-button.svg";

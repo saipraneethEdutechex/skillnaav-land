@@ -206,7 +206,7 @@ const SliderComponent: React.FC = () => {
               </ul>
               <a
                 href={selectedMember.linkedin}
-                className="bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-green-700 mt-4"
+                className="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-blue-700 mt-4"
                 target="_blank"
                 rel="noopener noreferrer"
               >
