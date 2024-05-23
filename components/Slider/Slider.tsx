@@ -142,15 +142,15 @@ const SliderComponent: React.FC = () => {
           {teamMembers.map((item, index) => (
             <div key={index} className="w-full flex justify-center">
               <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs mx-auto">
-                <div className="relative h-40 w-40 md:h-48 md:w-48 mx-auto mb-6 overflow-hidden rounded-full">
+                <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6">
                   <Image
-                    className="rounded-full"
                     src={item.imageUrl}
                     alt={item.name}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain"
                   />
                 </div>
+
                 <h1 className="text-xl md:text-2xl text-gray-900 font-bold mb-2 text-center">
                   {item.name}
                 </h1>
@@ -183,15 +183,14 @@ const SliderComponent: React.FC = () => {
           className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-50"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg max-w-3xl w-full">
+          <div className="bg-white p-6 md:p-8 lg:p-10  shadow-lg max-w-3xl w-full">
             <div className="flex flex-col items-center">
-              <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6 overflow-hidden rounded-full">
+              <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6">
                 <Image
-                  className="rounded-full"
                   src={selectedMember.imageUrl}
                   alt={selectedMember.name}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="contain"
                 />
               </div>
 
