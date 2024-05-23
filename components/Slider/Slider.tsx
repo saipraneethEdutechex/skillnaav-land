@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Slider from "react-slick";
 import Modal from "react-modal";
 import Christopher from "@/public/assets/christopher_Img.jpg";
@@ -16,7 +16,7 @@ interface TeamMember {
   position: string;
   description: string;
   linkedin: string;
-  imageUrl: string;
+  imageUrl: StaticImageData;
   points: string[];
 }
 
@@ -83,7 +83,7 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const SliderComponent = () => {
+const SliderComponent: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
@@ -125,45 +125,45 @@ const SliderComponent = () => {
   return (
     <div
       id="team"
-      className="w-full h-fit flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 lg:px-20 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
+      className="w-full h-full  flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
     >
-      <h1 className="text-5xl lg:text-6xl text-white text-center">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center">
         Meet Our Team
       </h1>
-      <p className="text-lg lg:text-xl text-center text-white max-w-2xl">
+      <p className="text-lg md:text-xl text-center text-white max-w-2xl">
         Discover the brilliant minds behind our innovative solutions. Our team
         is composed of experienced professionals dedicated to pushing the
         boundaries of technology and research.
       </p>
-      <div className="w-full h-fit p-4 lg:p-8">
+      <div className="w-full h-auto p-4 md:p-8 lg:p-12">
         <Slider {...settings}>
           {teamMembers.map((item, index) => (
             <div
-              className="bg-white p-6 lg:p-10 rounded-xl flex flex-col justify-center items-center shadow-lg h-[500px] lg:h-[600px]"
+              className="bg-white p-6 md:p-8 lg:p-10 rounded-xl flex flex-col justify-center items-center shadow-lg h-auto md:h-[500px] lg:h-[600px]"
               key={index}
             >
-              <div className="bg-green-100 p-4 lg:p-6 rounded-full">
+              <div className="bg-green-100 p-4 md:p-6 rounded-full">
                 <Image
-                  className="w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] rounded-full object-cover"
+                  className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
                   src={item.imageUrl}
                   alt={item.name}
                   width={200}
                   height={200}
                 />
               </div>
-              <div className="flex flex-col justify-center items-center gap-3 lg:gap-6 mt-6">
-                <h1 className="text-xl lg:text-2xl text-gray-900 font-bold">
+              <div className="flex flex-col justify-center items-center gap-3 md:gap-6 mt-6">
+                <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold">
                   {item.name}
                 </h1>
-                <p className="text-sm lg:text-[17px] text-center text-gray-600">
+                <p className="text-sm md:text-base text-center text-gray-600">
                   {item.position}
                 </p>
-                <p className="text-sm lg:text-[17px] text-center text-gray-700">
+                <p className="text-sm md:text-base text-center text-gray-700">
                   {item.description}
                 </p>
                 <button
                   onClick={() => openModal(item)}
-                  className="bg-green-600 text-white px-6 py-2 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-green-700"
+                  className="bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-green-700"
                 >
                   Read More
                 </button>
@@ -176,27 +176,27 @@ const SliderComponent = () => {
       {selectedMember && (
         <Modal
           isOpen={modalIsOpen}
-          onRequestClose={closeModalIsOpen}
+          onRequestClose={closeModal}
           contentLabel="Team Member Details"
           className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-50"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white p-6 lg:p-10 rounded-xl shadow-lg max-w-3xl w-full">
+          <div className="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg max-w-3xl w-full">
             <div className="flex flex-col items-center">
               <Image
-                className="w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] rounded-full object-cover"
+                className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full object-cover"
                 src={selectedMember.imageUrl}
                 alt={selectedMember.name}
                 width={200}
                 height={200}
               />
-              <h1 className="text-xl lg:text-2xl text-gray-900 font-bold mt-4">
+              <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold mt-4">
                 {selectedMember.name}
               </h1>
-              <p className="text-sm lg:text-[17px] text-center text-gray-600">
+              <p className="text-sm md:text-base text-center text-gray-600">
                 {selectedMember.position}
               </p>
-              <p className="text-sm lg:text-[17px] text-center text-gray-700 mt-4">
+              <p className="text-sm md:text-base text-center text-gray-700 mt-4">
                 {selectedMember.description}
               </p>
               <ul className="mt-4 text-gray-700 list-disc list-inside">
@@ -206,7 +206,7 @@ const SliderComponent = () => {
               </ul>
               <a
                 href={selectedMember.linkedin}
-                className="bg-green-600 text-white px-6 py-2 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-green-700 mt-4"
+                className="bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-green-700 mt-4"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -214,7 +214,7 @@ const SliderComponent = () => {
               </a>
               <button
                 onClick={closeModal}
-                className="mt-4 bg-red-600 text-white px-6 py-2 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-red-700"
+                className="mt-4 bg-red-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-red-700"
               >
                 Close
               </button>
