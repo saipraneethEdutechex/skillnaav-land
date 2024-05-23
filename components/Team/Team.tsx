@@ -1,17 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// Import your custom arrow icons as SVG files
-
 import Christopher from "@/public/assets/christopher_Img.jpg";
 import RamK from "@/public/assets/ramK_img.png";
 import Jyothsna from "@/public/assets/jyothsnaV_img.jpeg";
 import Shweta from "@/public/assets/ShwetaKinra.jpeg";
 import Akansha from "@/public/assets/Akansha.jpeg";
+import SliderComponent from "../Slider/Slider";
 
 interface TeamMember {
   name: string;
@@ -149,97 +146,7 @@ const Team: React.FC = () => {
     );
   };
 
-  return (
-    <div id="team" className="container mx-auto mt-8 px-4 lg:px-0">
-      <h1 className="text-center font-medium py-8 text-2xl lg:text-4xl text-gray-900">
-        Our Team
-      </h1>
-      <Slider {...settings}>
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center cursor-pointer"
-            onClick={() => handleReadMore(member)}
-          >
-            <div className="rounded-lg overflow-hidden shadow-lg mb-4">
-              <Image
-                src={member.imageUrl}
-                alt={member.name}
-                width={300}
-                height={300}
-              />
-            </div>
-            <div className="text-center">
-              <p className="font-semibold text-lg">{member.name}</p>
-              <p className="text-sm text-gray-600 mb-2">{member.position}</p>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleReadMore(member);
-                }}
-                className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg mt-2 focus:outline-none"
-              >
-                Read More
-              </button>
-            </div>
-          </div>
-        ))}
-      </Slider>
-
-      {selectedMember && (
-        <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50"
-          onClick={handleClose}
-        >
-          <div className="bg-white rounded-lg p-8 max-w-md w-full">
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 text-gray-500 focus:outline-none"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <p className="text-lg font-semibold mb-2">{selectedMember.name}</p>
-            <p className="text-sm text-gray-600 mb-2">
-              {selectedMember.position}
-            </p>
-            <p className="text-sm text-gray-600 mb-4">
-              {selectedMember.description}
-            </p>
-            <ul className="list-disc list-inside mb-4">
-              {selectedMember.points.map((point, index) => (
-                <li key={index} className="text-sm text-gray-600">
-                  {point}
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-end">
-              <a
-                href={selectedMember.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg focus:outline-none"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return <SliderComponent />;
 };
 
 export default Team;
