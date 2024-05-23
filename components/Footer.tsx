@@ -10,9 +10,9 @@ export function Footer() {
   return (
     <footer className="bg-white text-gray-800 mt-10 py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           {/* Footer Logo */}
-          <div className="flex items-center justify-center md:justify-start md:col-span-1">
+          <div className="flex items-start justify-center md:justify-start md:col-span-1">
             <Image
               src={SkillNaavLogo}
               alt="SkillNaav Logo"
@@ -22,7 +22,7 @@ export function Footer() {
           </div>
 
           {/* Contact Details */}
-          <div className="md:col-span-2 flex flex-col text-sm text-gray-800">
+          <div className="md:col-span-1">
             <h5 className="font-semibold mb-4">Contact Details</h5>
             <p>Hi-tech City, Hyderabad 500081</p>
             <p className="mt-2">+91 7330841818</p>
@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           {/* Useful Links */}
-          <div className="md:col-span-1 flex flex-col text-sm text-gray-800">
+          <div className="md:col-span-1">
             <h5 className="font-semibold mb-4">Useful Links</h5>
             <ul>
               <li>
@@ -54,6 +54,27 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Email Subscription */}
+          <div className="md:col-span-1">
+            <h5 className="font-semibold mb-4">Stay Informed</h5>
+            <p className="text-sm text-gray-800 mb-4">
+              Subscribe to our newsletters to get the latest news and updates
+            </p>
+            <form className="flex flex-col gap-4">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="py-2 px-3 text-sm text-gray-800 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              />
+              <button
+                type="submit"
+                className="px-6 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
@@ -91,27 +112,6 @@ export function Footer() {
           >
             <Image src={LinkedinIcon} alt="Linkedin" width={24} height={24} />
           </Link>
-        </div>
-
-        {/* Newsletter Subscription */}
-        <div className="mt-8 text-center md:text-left">
-          <h5 className="text-lg font-semibold mb-4">Stay Informed</h5>
-          <p className="text-sm text-gray-800 mb-4">
-            Subscribe to our newsletters to get the latest news and updates
-          </p>
-          <form className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="w-full md:w-2/3 px-4 py-2 text-sm text-gray-800 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
-            />
-            <button
-              type="submit"
-              className="w-full md:w-auto px-6 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
 
         {/* Copyright Text */}
