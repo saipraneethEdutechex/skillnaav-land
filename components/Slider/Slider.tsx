@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Slider from "react-slick";
 import Modal from "react-modal";
 import Christopher from "@/public/assets/christopher_Img.jpg";
@@ -16,7 +16,7 @@ interface TeamMember {
   position: string;
   description: string;
   linkedin: string;
-  imageUrl: StaticImageData;
+  imageUrl: string;
   points: string[];
 }
 
@@ -121,10 +121,11 @@ const SliderComponent = () => {
       },
     ],
   };
+
   return (
     <div
       id="team"
-      className="border-r-2  w-full h-fit flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 lg:px-20 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
+      className="w-full h-fit flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 lg:px-20 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
     >
       <h1 className="text-5xl lg:text-6xl text-white text-center">
         Meet Our Team
@@ -146,6 +147,8 @@ const SliderComponent = () => {
                   className="w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] rounded-full object-cover"
                   src={item.imageUrl}
                   alt={item.name}
+                  width={200}
+                  height={200}
                 />
               </div>
               <div className="flex flex-col justify-center items-center gap-3 lg:gap-6 mt-6">
@@ -173,7 +176,7 @@ const SliderComponent = () => {
       {selectedMember && (
         <Modal
           isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          onRequestClose={closeModalIsOpen}
           contentLabel="Team Member Details"
           className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-50"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
@@ -184,6 +187,8 @@ const SliderComponent = () => {
                 className="w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] rounded-full object-cover"
                 src={selectedMember.imageUrl}
                 alt={selectedMember.name}
+                width={200}
+                height={200}
               />
               <h1 className="text-xl lg:text-2xl text-gray-900 font-bold mt-4">
                 {selectedMember.name}
@@ -220,4 +225,5 @@ const SliderComponent = () => {
     </div>
   );
 };
+
 export default SliderComponent;
