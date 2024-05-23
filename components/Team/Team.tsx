@@ -1,9 +1,10 @@
-"use client";
+'use client'
 import React, { useState } from "react";
-import Image from "next/image";
-import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Christopher from "@/public/assets/christopher_Img.jpg";
 import RamK from "@/public/assets/ramK_img.png";
 import Jyothsna from "@/public/assets/jyothsnaV_img.jpeg";
@@ -82,80 +83,167 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const Team: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+const CustomNextArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        right: 0,
+        zIndex: 1,
+        top: "50%",
+        transform: "translateY(-50%)",
+      }}
+      onClick={onClick}
+    />
+  );
+};
 
-  const handleSelect = (selectedIndex: number) => {
-    setCurrentIndex(selectedIndex);
+const CustomPrevArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        left: 0,
+        zIndex: 1,
+        top: "50%",
+        transform: "translateY(-50%)",
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+const Team: React.FC = () => {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
-  const renderTeamMembers = () => {
-    const groups: TeamMember[][] = [];
-    for (let i = 0; i < teamMembers.length; i += 3) {
-      groups.push(teamMembers.slice(i, i + 3));
-    }
-    return groups;
+  const handleReadMore = (member: TeamMember) => {
+    setSelectedMember(member);
+  };
+
+  const handleClose = () => {
+    setSelectedMember(null);
   };
 
   return (
-    <div id="team" className="py-16 px-4">
-      <h1 className="text-center text-3xl lg:text-5xl font-regular mb-10">
-        Our Team
-      </h1>
-      <Carousel
-        activeIndex={currentIndex}
-        onSelect={handleSelect}
-        interval={5000}
-        controls={true}
-        indicators={true}
-        className="team-carousel"
-        prevIcon={<span className="carousel-control-prev-icon" />}
-        nextIcon={<span className="carousel-control-next-icon" />}
-      >
-        {renderTeamMembers().map((group, index) => (
-          <Carousel.Item key={index}>
-            <div className="flex flex-wrap justify-center">
-              {group.map((member, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white shadow-lg rounded-lg p-6 m-4 max-w-sm text-center flex flex-col items-center transition-transform transform hover:translate-y-[-5px]"
+    <div id="team" className="w-11/12 lg:w-3/4 m-auto">
+      <div className="mt-20">
+        <Slider {...settings}>
+          {teamMembers.map((d, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg overflow-hidden shadow-lg mx-4 cursor-pointer"
+              onClick={() => handleReadMore(d)}
+            >
+              <div className="h-64 flex justify-center items-center">
+                <Image
+                  className="h-40 w-40 rounded-full"
+                  src={d.imageUrl}
+                  alt={d.name}
+                />
+              </div>
+              <div className="p-4">
+                <p className="text-lg font-semibold">{d.name}</p>
+                <p className="text-sm text-gray-600">{d.position}</p>
+                <button
+                  className="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg mt-2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleReadMore(d);
+                  }}
                 >
-                  <div className="w-40 h-40 rounded-full overflow-hidden mb-4 border-4 border-white shadow">
-                    <Image
-                      src={member.imageUrl}
-                      alt={member.name}
-                      width={160}
-                      height={160}
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-600">{member.position}</p>
-                  <p className="text-gray-700 mb-4">{member.description}</p>
-                  <ul className="text-left text-gray-700 space-y-2">
-                    {member.points.map((point, i) => (
-                      <li key={i} className="flex items-center">
-                        <div className="bullet mr-2" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block underline text-blue-500 hover:text-blue-700"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
-              ))}
+                  Read More
+                </button>
+              </div>
             </div>
-          </Carousel.Item>
-        ))}
-      </Carousel>
+          ))}
+        </Slider>
+      </div>
+      {selectedMember && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50"
+          onClick={handleClose}
+        >
+          <div className="bg-white rounded-lg p-8 max-w-md w-full">
+            <button
+              className="absolute top-4 right-4 text-gray-500"
+              onClick={handleClose}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <p className="text-lg font-semibold mb-2">{selectedMember.name}</p>
+            <p className="text-sm text-gray-600 mb-4">
+              {selectedMember.position}
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              {selectedMember.description}
+            </p>
+            <ul className="list-disc list-inside mb-4">
+              {selectedMember.points.map((point, index) => (
+                <li key={index} className="text-sm text-gray-600">
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className="flex justify-end">
+              <a
+                href={selectedMember.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 text-white text-sm px-4 py-2 rounded-lg"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

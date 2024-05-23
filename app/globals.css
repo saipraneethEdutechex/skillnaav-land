@@ -3,3 +3,13 @@
 @tailwind utilities;
 
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+@layer base {
+  /* body {
+    background-color: #14161b;
+  } */
+}
+.slick-slide > div {
+  margin: 0 10px;
+  padding: 10px;
+}
