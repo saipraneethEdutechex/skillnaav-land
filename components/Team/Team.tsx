@@ -1,9 +1,11 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// Import your custom arrow icons as SVG files
 
 import Christopher from "@/public/assets/christopher_Img.jpg";
 import RamK from "@/public/assets/ramK_img.png";
@@ -83,42 +85,6 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const CustomNextArrow = (props: any) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        right: 0,
-        zIndex: 1,
-        top: "50%",
-        transform: "translateY(-50%)",
-      }}
-      onClick={onClick}
-    />
-  );
-};
-
-const CustomPrevArrow = (props: any) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        left: 0,
-        zIndex: 1,
-        top: "50%",
-        transform: "translateY(-50%)",
-      }}
-      onClick={onClick}
-    />
-  );
-};
-
 const Team: React.FC = () => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
@@ -128,16 +94,14 @@ const Team: React.FC = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
+    // nextArrow: <CustomNextArrow />,
+    //  prevArrow: <CustomPrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -158,40 +122,70 @@ const Team: React.FC = () => {
     setSelectedMember(null);
   };
 
-  return (
-    <div id="team" className="w-11/12 lg:w-3/4 m-auto">
-      <div className="mt-20">
-        <Slider {...settings}>
-          {teamMembers.map((d, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-lg mx-4 cursor-pointer"
-              onClick={() => handleReadMore(d)}
-            >
-              <div className="h-64 flex justify-center items-center">
-                <Image
-                  className="h-40 w-40 rounded-full"
-                  src={d.imageUrl}
-                  alt={d.name}
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-lg font-semibold">{d.name}</p>
-                <p className="text-sm text-gray-600">{d.position}</p>
-                <button
-                  className="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg mt-2"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleReadMore(d);
-                  }}
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
-          ))}
-        </Slider>
+  const CustomNextArrow = (props: any) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        {/* Your custom next arrow icon */}
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
       </div>
+    );
+  };
+
+  const CustomPrevArrow = (props: any) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      </div>
+    );
+  };
+
+  return (
+    <div id="team" className="container mx-auto mt-8 px-4 lg:px-0">
+      <h1 className="text-center font-medium py-8 text-2xl lg:text-4xl text-gray-900">
+        Our Team
+      </h1>
+      <Slider {...settings}>
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center cursor-pointer"
+            onClick={() => handleReadMore(member)}
+          >
+            <div className="rounded-lg overflow-hidden shadow-lg mb-4">
+              <Image
+                src={member.imageUrl}
+                alt={member.name}
+                width={300}
+                height={300}
+              />
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-lg">{member.name}</p>
+              <p className="text-sm text-gray-600 mb-2">{member.position}</p>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleReadMore(member);
+                }}
+                className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg mt-2 focus:outline-none"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        ))}
+      </Slider>
+
       {selectedMember && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50"
@@ -199,8 +193,8 @@ const Team: React.FC = () => {
         >
           <div className="bg-white rounded-lg p-8 max-w-md w-full">
             <button
-              className="absolute top-4 right-4 text-gray-500"
               onClick={handleClose}
+              className="absolute top-4 right-4 text-gray-500 focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +212,7 @@ const Team: React.FC = () => {
               </svg>
             </button>
             <p className="text-lg font-semibold mb-2">{selectedMember.name}</p>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-600 mb-2">
               {selectedMember.position}
             </p>
             <p className="text-sm text-gray-600 mb-4">
@@ -236,7 +230,7 @@ const Team: React.FC = () => {
                 href={selectedMember.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-500 text-white text-sm px-4 py-2 rounded-lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg focus:outline-none"
               >
                 LinkedIn
               </a>
