@@ -72,7 +72,7 @@ const teamMembers: TeamMember[] = [
     name: "Ms. Akankasha Chugh",
     position: "Head, Operations Coordination",
     description:
-      "M.Sc. in Food Science & Nutrition Allahabad University, India. 5+ years in global events management across countries.",
+      "M.Sc. in Food Science & Nutrition Allahabad University. 5+ years in global events management across countries.",
     linkedin: "https://www.linkedin.com/in/akanksha-chugh-974813284/",
     imageUrl: Akansha,
     points: [

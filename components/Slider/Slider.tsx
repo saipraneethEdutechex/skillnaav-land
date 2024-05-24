@@ -22,66 +22,82 @@ interface TeamMember {
   points: string[];
 }
 
+const truncateText = (text: string, wordLimit: number): string => {
+  const words = text.split(" ");
+  if (words.length <= wordLimit) return text;
+  return words.slice(0, wordLimit).join(" ") + "...";
+};
+
 const teamMembers: TeamMember[] = [
   {
     name: "Dr. Ram K Aluru",
     position: "C.E.O / C.T.O",
-    description:
+    description: truncateText(
       "Expert in Quantum Physics with a PhD from St Andrews, Scotland, UK. Over 10 years of experience in R&D and Quantum Technologies.",
+      15
+    ),
     linkedin: "https://www.linkedin.com/in/dr-ram-k-aluru-77608a3b/",
     imageUrl: RamK,
     points: [
       "PhD in Quantum Physics, St Andrews, Scotland, UK",
       "10+ years in R&D and Quantum Technologies",
-    ],
+    ].map((point) => truncateText(point, 10)),
   },
   {
     name: "Ms. Shweta Kinra",
     position: "Head, University Outreach",
-    description:
+    description: truncateText(
       "PhD in Textiles and Clothing, Delhi University, India. 10+ years in university research and teaching.",
+      15
+    ),
     linkedin: "https://www.linkedin.com/in/shweta-kinra-17b88916/",
     imageUrl: Shweta,
     points: [
       "PhD in Textiles and Clothing, Delhi University, India",
       "10+ years in university research and teaching",
-    ],
+    ].map((point) => truncateText(point, 10)),
   },
   {
     name: "Ms. Hem Ranjani",
     position: "Head, HR & Schools BD",
-    description:
+    description: truncateText(
       "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
+      15
+    ),
     linkedin: "https://www.linkedin.com/in/hem-ranjani-826b021bb/",
     imageUrl: Hema,
     points: [
       "M.Sc. in Agrochemicals & PG Diploma in HR Management",
       "10+ years teaching at IGCSE and IB Schools",
-    ],
+    ].map((point) => truncateText(point, 10)),
   },
   {
     name: "Mr. Krishna Pillai",
     position: "Head, Market Research",
-    description:
+    description: truncateText(
       "MA & MBA Madurai Kamraj University, India. 15+ years in Industrial Supply chain production and planning.",
+      15
+    ),
     linkedin: "https://www.linkedin.com/in/krishna-pillai-padmanabhan/",
     imageUrl: KPillai,
     points: [
       "MA & MBA Madurai Kamraj University, India",
       "15+ years in Industrial Supply chain production",
-    ],
+    ].map((point) => truncateText(point, 10)),
   },
   {
-    name: "Ms. Akankasha Chugh",
+    name: "Ms. Akankasha",
     position: "Head, Operations Coordination",
-    description:
-      "M.Sc. in Food Science & Nutrition Allahabad University, India. 5+ years in global events management across countries.",
+    description: truncateText(
+      "M.Sc. in Food Science & Nutrition Allahabad University. 5+ years in global events management across countries.",
+      15
+    ),
     linkedin: "https://www.linkedin.com/in/akanksha-chugh-974813284/",
     imageUrl: Akansha,
     points: [
-      "M.Sc. in Food Science & Nutrition Allahabad University, India",
+      "M.Sc. in Food Science & Nutrition Allahabad University",
       "5+ years in global events management",
-    ],
+    ].map((point) => truncateText(point, 10)),
   },
 ];
 
@@ -140,9 +156,9 @@ const SliderComponent: React.FC = () => {
       <div className="w-full">
         <Slider {...settings}>
           {teamMembers.map((item, index) => (
-            <div key={index} className="w-full flex justify-center">
-              <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs mx-auto">
-                <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6">
+            <div key={index} className="flex justify-center">
+              <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs flex flex-col items-center">
+                <div className="relative h-40 w-40 md:h-36 md:w-36 mb-6 flex items-center justify-center rounded-full overflow-hidden">
                   <Image
                     src={item.imageUrl}
                     alt={item.name}
@@ -150,7 +166,6 @@ const SliderComponent: React.FC = () => {
                     objectFit="contain"
                   />
                 </div>
-
                 <h1 className="text-xl md:text-2xl text-gray-900 font-bold mb-2 text-center">
                   {item.name}
                 </h1>
@@ -162,7 +177,6 @@ const SliderComponent: React.FC = () => {
                     <li key={i}>{point}</li>
                   ))}
                 </ul>
-
                 <button
                   onClick={() => openModal(item)}
                   className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold w-full hover:bg-green-700"
@@ -180,10 +194,10 @@ const SliderComponent: React.FC = () => {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Team Member Details"
-          className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-50"
+          className="fixed inset-0 flex items-center justify-center p-4"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
-          <div className="bg-white p-6 md:p-8 lg:p-10  shadow-lg max-w-3xl w-full">
+          <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-3xl w-full">
             <div className="flex flex-col items-center">
               <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6">
                 <Image
@@ -191,9 +205,9 @@ const SliderComponent: React.FC = () => {
                   alt={selectedMember.name}
                   layout="fill"
                   objectFit="contain"
+                  className="rounded-full"
                 />
               </div>
-
               <h1 className="text-lg md:text-xl lg:text-2xl text-gray-900 font-bold mt-4">
                 {selectedMember.name}
               </h1>
