@@ -28,11 +28,6 @@ export default function ContactForm() {
             Have Questions? Get in Touch
           </h1>
           <p className="text-white text-lg mb-6 text-center">
-            AITECHEX Quantum Innovative Solutions Pvt. Ltd.
-            <br />
-            Hi-tech City, Hyderabad 500081
-            <br />
-            +91 7330841818
             <br />
             <a
               href="mailto:info@navigatebi.com"

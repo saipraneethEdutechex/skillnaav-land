@@ -24,8 +24,7 @@ export function Footer() {
           {/* Contact Details */}
           <div className="md:col-span-1">
             <h5 className="font-semibold mb-4">Contact Details</h5>
-            <p>Hi-tech City, Hyderabad 500081</p>
-            <p className="mt-2">+91 7330841818</p>
+
             <p className="mt-2">Email: info@skillnaav.com</p>
           </div>
 
