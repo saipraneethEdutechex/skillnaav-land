@@ -5,10 +5,10 @@ import Features from "@/components/Features";
 import Faq from "@/components/Faq";
 import { Pricing } from "@/components/Pricing";
 import Team from "@/components/Team/Team";
-import { Footer } from "@/components/Footer";
 import Head from "next/head";
+import Vision from "@/components/Vision";
 import ContactForm from "@/components/ContactForm";
-
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
@@ -18,10 +18,11 @@ export default function Home() {
       </Head>
       <Hero />
       <div className="px-[20px] lg:container lg:px-20 mx-auto">
+        <Vision />
         <Features />
-        <Faq />
         <Team />
         <Pricing />
+        <Faq />
         <ContactForm />
         <Footer />
       </div>

@@ -7,8 +7,7 @@ import Trustpilot from "@/public/assets/Trustpilot.svg";
 import Cnn from "@/public/assets/CNN.svg";
 import Cluth from "@/public/assets/Clutch.svg";
 import BlueArrow from "@/public/assets/blue-button.svg";
-import HeroImg from "../../public/assets/Feature2Img.png";
-import HeroIntern from "../../public/assets/heroimg .png";
+import Link from "next/link";
 const Hero = () => {
   return (
     <div id="discover" className="pt-4 lg:pt-10">
@@ -24,6 +23,7 @@ const Hero = () => {
           <button className="bg-[#4328EB] text-[#FFFFFF] w-1/2 px-8 py-4 rounded-[4px] lg:w-fit">
             Try for free
           </button>
+
           <button className="text-[#4328EB] font-medium flex items-center justify-center gap-x-2 w-1/2 px-8 py-4 rounded-[4px] lg:w-fit">
             View Pricing
             <span>
@@ -47,7 +47,7 @@ const Hero = () => {
           />
           <div className="flex w-full flex-col items-center lg:container lg:flex-row lg:justify-between lg:px-20">
             <p className="text-[white] text-center text-[16px] lg:text-[18px]">
-              Trusted by these companies
+              Trusted by these companie
             </p>
             <div className="grid grid-cols-3 items-center justify-center justify-items-center px-[20px] align-middle lg:grid-cols-5">
               <Image src={Google} alt="Google" />
