@@ -47,7 +47,7 @@ const Features = () => {
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Mapping of internships based on students' personality
+              Mapping of internships based on students&apos; personality
             </li>
           </ul>
           <p className="flex items-center gap-5 pt-8 text-base lg:text-lg font-medium text-blue-600">
@@ -133,7 +133,7 @@ const Features = () => {
             Personalized Internship Mapping
           </h1>
           <p className="pt-6 text-gray-700 lg:text-lg lg:leading-7">
-            Mapping of internships based on students' personality through
+            Mapping of internships based on students&apos; personality through
             psychometrics.
           </p>
           <ul className="flex flex-col gap-3 pt-4">
