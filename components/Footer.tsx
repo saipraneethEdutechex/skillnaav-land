@@ -6,7 +6,7 @@ import FeedIcon from "@/public/assets/Feed.svg";
 import LinkedinIcon from "@/public/assets/linkedin-svgrepo-com.svg";
 import Link from "next/link";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-white text-gray-800 mt-10 py-12">
       <div className="container mx-auto px-4">

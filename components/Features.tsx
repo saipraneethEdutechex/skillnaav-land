@@ -14,6 +14,7 @@ const Features = () => {
       id="features"
       className="flex flex-col gap-y-8 py-8 lg:py-16 lg:gap-y-12"
     >
+      {/* Feature 1: Early Scientific Opportunities */}
       <div className="flex flex-col gap-x-6 sm:flex-row-reverse">
         <div className="relative w-full sm:w-1/2 lg:pr-12">
           <Image
@@ -26,33 +27,27 @@ const Features = () => {
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pr-12">
           <h3 className="font-medium text-blue-600 lg:text-lg">
-            Personalized Internships
+            Early Scientific Opportunities
           </h3>
           <h1 className="pt-4 text-2xl font-medium text-gray-900 lg:text-4xl lg:leading-none">
-            Tailored to Your Skills and Interests
+            Provides Early Exposure to Science
           </h1>
           <p className="pt-6 text-gray-700 lg:text-lg lg:leading-7">
-            Discover internships that match your personality, strengths, and
-            interests, ensuring a rewarding experience.
+            Provides an early scientific opportunity for students to experience
+            and acquire skill sets required for building careers.
           </p>
           <ul className="flex flex-col gap-3 pt-4">
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Personalized internship recommendations
+              Options to explore various career paths
             </li>
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Matches based on personality and skills
-            </li>
-            <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
-              <span>
-                <Image src={Check} alt="" />
-              </span>
-              Support for exploring various career paths
+              Mapping of internships based on students' personality
             </li>
           </ul>
           <p className="flex items-center gap-5 pt-8 text-base lg:text-lg font-medium text-blue-600">
@@ -64,8 +59,7 @@ const Features = () => {
         </div>
       </div>
 
-      {/* Repeat similar structure for other sections */}
-
+      {/* Feature 2: AI-based Career Exploration */}
       <div className="flex flex-col gap-x-6 sm:flex-row">
         <div className="relative w-full sm:w-1/2 lg:pl-12">
           <Image
@@ -77,35 +71,38 @@ const Features = () => {
           />
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pl-12 sm:pr-8">
-          {/* Added sm:pr-8 */}
           <h3 className="font-medium text-pink-600 lg:text-lg">
-            Professional Support
+            AI-based Career Exploration
           </h3>
           <h1 className="pt-4 text-2xl font-medium text-gray-900 lg:text-4xl lg:leading-none">
-            Guidance Every Step of the Way
+            Guided Career Paths with AI
           </h1>
           <p className="pt-6 text-gray-700 lg:text-lg lg:leading-7">
-            Receive expert advice and support from industry professionals
-            throughout your internship journey.
+            Options to explore various career paths before zeroing down to the
+            passionate one blended with the right skill set with the help of
+            AI-based technologies.
           </p>
           <ul className="flex flex-col gap-3 pt-4">
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Professional mentorship and guidance
+              Democratising the accessibility of practical and quality
+              internships within a country and abroad
             </li>
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Assistance with application process and interviews
+              Builds a database of students with relevant skills and passion
+              within the country to assist career navigation
             </li>
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">
               <span>
                 <Image src={Check} alt="" />
               </span>
-              Access to resources for skill development
+              Curates relevant academic and industry-oriented internships based
+              on forecast
             </li>
           </ul>
           <p className="flex items-center gap-5 pt-8 text-base lg:text-lg font-medium text-pink-600">
@@ -117,6 +114,7 @@ const Features = () => {
         </div>
       </div>
 
+      {/* Feature 3: Internship Mapping */}
       <div className="flex flex-col gap-x-6 sm:flex-row-reverse">
         <div className="relative w-full sm:w-1/2 lg:pr-12">
           <Image
@@ -129,14 +127,14 @@ const Features = () => {
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pr-12">
           <h3 className="font-medium text-green-600 lg:text-lg">
-            Global Opportunities
+            Internship Mapping
           </h3>
           <h1 className="pt-4 text-2xl font-medium text-gray-900 lg:text-4xl lg:leading-none">
-            Unlock Your Potential Worldwide
+            Personalized Internship Mapping
           </h1>
           <p className="pt-6 text-gray-700 lg:text-lg lg:leading-7">
-            Explore internship opportunities not only locally but also globally,
-            opening doors to endless possibilities.
+            Mapping of internships based on students' personality through
+            psychometrics.
           </p>
           <ul className="flex flex-col gap-3 pt-4">
             <li className="flex items-center gap-2 text-gray-700 lg:text-lg">

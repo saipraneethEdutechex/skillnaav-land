@@ -143,7 +143,7 @@ const SliderComponent: React.FC = () => {
   return (
     <div
       id="team"
-      className="w-full h-full flex flex-col justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
+      className="w-full h-full flex flex-col rounded-lg justify-center items-center px-4 py-12 my-12 pb-12 md:py-12 lg:py-20 gap-10 bg-gradient-to-r from-teal-400 via-green-400 to-teal-600"
     >
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-white text-center mb-4">
         Meet Our Team

@@ -7,8 +7,7 @@ import Trustpilot from "@/public/assets/Trustpilot.svg";
 import Cnn from "@/public/assets/CNN.svg";
 import Cluth from "@/public/assets/Clutch.svg";
 import BlueArrow from "@/public/assets/blue-button.svg";
-import HeroImg from "../../public/assets/Feature2Img.png";
-import HeroIntern from "../../public/assets/heroimg .png";
+import Link from "next/link";
 const Hero = () => {
   return (
     <div id="discover" className="pt-4 lg:pt-10">
@@ -24,6 +23,7 @@ const Hero = () => {
           <button className="bg-[#4328EB] text-[#FFFFFF] w-1/2 px-8 py-4 rounded-[4px] lg:w-fit">
             Try for free
           </button>
+
           <button className="text-[#4328EB] font-medium flex items-center justify-center gap-x-2 w-1/2 px-8 py-4 rounded-[4px] lg:w-fit">
             View Pricing
             <span>
