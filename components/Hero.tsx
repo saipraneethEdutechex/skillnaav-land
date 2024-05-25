@@ -47,7 +47,7 @@ const Hero = () => {
           />
           <div className="flex w-full flex-col items-center lg:container lg:flex-row lg:justify-between lg:px-20">
             <p className="text-[white] text-center text-[16px] lg:text-[18px]">
-              Trusted by these companies
+              Trusted by these companie
             </p>
             <div className="grid grid-cols-3 items-center justify-center justify-items-center px-[20px] align-middle lg:grid-cols-5">
               <Image src={Google} alt="Google" />
