@@ -5,10 +5,11 @@ import Menu from "@/public/assets/Menu.svg";
 
 const navLinks = [
   { name: "Discover", href: "#discover" },
+  { name: "Vision", href: "#vision" },
   { name: "Features", href: "#features" },
-  { name: "FAQs", href: "#faqs" },
   { name: "Team", href: "#team" },
   { name: "Pricing", href: "#pricing" },
+  { name: "FAQs", href: "#faqs" },
 ];
 
 const Navbar = () => {

@@ -77,7 +77,6 @@ const Features = () => {
           />
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pl-12 sm:pr-8">
-          {" "}
           {/* Added sm:pr-8 */}
           <h3 className="font-medium text-pink-600 lg:text-lg">
             Professional Support
