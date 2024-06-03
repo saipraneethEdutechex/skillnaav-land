@@ -5,9 +5,10 @@ import Google from "@/public/assets/Google.svg";
 import Slack from "@/public/assets/Slack.svg";
 import Trustpilot from "@/public/assets/Trustpilot.svg";
 import Cnn from "@/public/assets/CNN.svg";
-import Cluth from "@/public/assets/Clutch.svg";
+import Clutch from "@/public/assets/Clutch.svg";
 import BlueArrow from "@/public/assets/blue-button.svg";
 import Link from "next/link";
+
 const Hero = () => {
   return (
     <div id="discover" className="pt-4 lg:pt-10">
@@ -43,7 +44,7 @@ const Hero = () => {
           <Image
             src={HeroImage}
             alt="hero image"
-            className=" h-[310px] sm:-mb-20 sm:h-[400px] lg:mb-4 lg:h-auto xl:w-[70%]"
+            className="mb-10 md:w-[50%] md:m-20 sm:mb-20 sm:w-[80%] lg:w-[60%] xl:w-[65%]"
           />
           <div className="flex w-full flex-col items-center lg:container lg:flex-row lg:justify-between lg:px-20">
             <p className="text-[white] text-center text-[16px] lg:text-[18px]">
@@ -54,7 +55,7 @@ const Hero = () => {
               <Image src={Slack} alt="Slack" />
               <Image src={Trustpilot} alt="Trustpilot" />
               <Image src={Cnn} alt="Cnn" />
-              <Image src={Cluth} alt="Clutch" />
+              <Image src={Clutch} alt="Clutch" />
             </div>
           </div>
         </div>
