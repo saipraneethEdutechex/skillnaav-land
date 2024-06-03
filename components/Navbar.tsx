@@ -24,14 +24,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex w-full items-center justify-between px-5 py-4 lg:container lg:mx-auto lg:px-20">
-      <div className="flex items-center justify-between gap-x-5">
+    <nav className="flex flex-wrap items-center justify-between px-5 py-4 lg:container lg:mx-auto lg:px-20">
+      <div className="flex items-center gap-x-5">
         <Link href="/">
           <div>
             <Image className="w-[150px]" src={SkillNaavLogo} alt="logo" />
           </div>
         </Link>
-        <div className="hidden lg:flex pl-[74px] gap-x-[56px]">
+        <div className="hidden lg:flex gap-x-8 ml-8">
           {navLinks.map((item, index) => (
             <Link key={index} href={item.href}>
               <div className="text-[#36485C] font-medium">{item.name}</div>

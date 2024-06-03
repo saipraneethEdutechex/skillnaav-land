@@ -15,7 +15,7 @@ const Features = () => {
       className="flex flex-col gap-y-8 py-8 lg:py-16 lg:gap-y-12"
     >
       {/* Feature 1: Early Scientific Opportunities */}
-      <div className="flex flex-col gap-x-6 sm:flex-row-reverse">
+      {/* <div className="flex flex-col gap-x-6 sm:flex-row-reverse">
         <div className="relative w-full sm:w-1/2 lg:pr-12">
           <Image
             src={Aerospace}
@@ -57,7 +57,7 @@ const Features = () => {
             </span>
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Feature 2: AI-based Career Exploration */}
       <div className="flex flex-col gap-x-6 sm:flex-row">

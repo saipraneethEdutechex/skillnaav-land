@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Gradient from "@/public/assets/Gradient.svg";
-import HeroImage from "@/public/assets/Image.svg";
+import HeroImage from "@/public/assets/app_mockup.png";
 import Google from "@/public/assets/Google.svg";
 import Slack from "@/public/assets/Slack.svg";
 import Trustpilot from "@/public/assets/Trustpilot.svg";
@@ -43,11 +43,11 @@ const Hero = () => {
           <Image
             src={HeroImage}
             alt="hero image"
-            className="-ml-5 h-[310px] sm:-mb-20 sm:h-[400px] lg:-mb-28 lg:h-auto xl:w-[70%]"
+            className="-ml-5 h-[310px] sm:-mb-20 sm:h-[400px] lg:mb-16 lg:h-auto xl:w-[70%]"
           />
           <div className="flex w-full flex-col items-center lg:container lg:flex-row lg:justify-between lg:px-20">
             <p className="text-[white] text-center text-[16px] lg:text-[18px]">
-              Trusted by these companie
+              Trusted by these companies
             </p>
             <div className="grid grid-cols-3 items-center justify-center justify-items-center px-[20px] align-middle lg:grid-cols-5">
               <Image src={Google} alt="Google" />

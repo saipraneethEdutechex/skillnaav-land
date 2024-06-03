@@ -17,7 +17,7 @@ export default function Home() {
         <meta name="description" content="This is the homepage of your app" />
       </Head>
       <Hero />
-      <div className="px-[20px] lg:container lg:px-20 mx-auto">
+      <div className="px-[20px] lg:px-20 mx-auto">
         <Vision />
         <Features />
         <Team />
