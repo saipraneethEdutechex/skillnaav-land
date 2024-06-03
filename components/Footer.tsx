@@ -74,12 +74,14 @@ export default function Footer() {
                 placeholder="Your email address"
                 className="py-2 px-3 text-sm text-gray-800 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button
-                type="submit"
-                className="px-6 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                Subscribe
-              </button>
+              <Link href="mailto:@skillnaav@gmail.com">
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
+                >
+                  Subscribe
+                </button>
+              </Link>
             </form>
           </div>
         </div>
