@@ -3,11 +3,13 @@ import Image, { StaticImageData } from "next/image";
 import Slider from "react-slick";
 import Modal from "react-modal";
 import Hema from "@/public/assets/HemaRanjini.jpeg";
-import RamK from "@/public/assets/ramK_img.png";
 import KPillai from "@/public/assets/krishnaPillai.jpeg";
-import Shweta from "@/public/assets/shwetaKinra.png";
-import Akansha from "@/public/assets/Akansha.jpeg";
 import Linkedin from "@/public/assets/linkedin_blue.png";
+import Christopher from "@/public/assets/christopher_Img.jpg";
+import RamK from "@/public/assets/ramK_img.png";
+import Jyothsna from "@/public/assets/jyothsnaV_img.jpeg";
+import Shweta from "@/public/assets/ShwetaKinra.jpeg";
+import Akansha from "@/public/assets/Akansha.jpeg";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,82 +24,84 @@ interface TeamMember {
   points: string[];
 }
 
-const truncateText = (text: string, wordLimit: number): string => {
-  const words = text.split(" ");
-  if (words.length <= wordLimit) return text;
-  return words.slice(0, wordLimit).join(" ") + "...";
+const truncateText = (text: string, charLimit: number): string => {
+  if (text.length <= charLimit) return text;
+  return text.slice(0, charLimit).trim() + "...";
 };
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Dr. Ram K Aluru",
-    position: "C.E.O / C.T.O",
+    name: truncateText("Dr. Ram K Aluru", 20),
+    position: truncateText("C.E.O / C.T.O", 25),
     description: truncateText(
       "Expert in Quantum Physics with a PhD from St Andrews, Scotland, UK. Over 10 years of experience in R&D and Quantum Technologies.",
-      15
+      150
     ),
     linkedin: "https://www.linkedin.com/in/dr-ram-k-aluru-77608a3b/",
     imageUrl: RamK,
     points: [
-      "PhD in Quantum Physics, St Andrews, Scotland, UK",
-      "10+ years in R&D and Quantum Technologies",
-    ].map((point) => truncateText(point, 10)),
+      truncateText("PhD in Quantum Physics, St Andrews, Scotland, UK", 50),
+      truncateText("10+ years in R&D and Quantum Technologies", 50),
+    ],
   },
   {
-    name: "Ms. Shweta Kinra",
-    position: "Head, University Outreach",
+    name: truncateText("Ms. Shweta Kinra", 20),
+    position: truncateText("Head, University Outreach", 25),
     description: truncateText(
       "PhD in Textiles and Clothing, Delhi University, India. 10+ years in university research and teaching.",
-      15
+      150
     ),
     linkedin: "https://www.linkedin.com/in/shweta-kinra-17b88916/",
     imageUrl: Shweta,
     points: [
-      "PhD in Textiles and Clothing, Delhi University, India",
-      "10+ years in university research and teaching",
-    ].map((point) => truncateText(point, 10)),
+      truncateText("PhD in Textiles and Clothing, Delhi University, India", 50),
+      truncateText("10+ years in university research and teaching", 50),
+    ],
   },
   {
-    name: "Ms. Hem Ranjani",
-    position: "Head, HR & Schools BD",
+    name: truncateText("Ms. Hem Ranjani", 20),
+    position: truncateText("Head, HR & Schools BD", 25),
     description: truncateText(
       "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
-      15
+      150
     ),
-    linkedin: "https://www.linkedin.com/in/hem-ranjani-826b021bb/",
+    linkedin: "https://www.linkedin.com/in/johndoe/",
     imageUrl: Hema,
     points: [
-      "M.Sc. in Agrochemicals & PG Diploma in HR Management",
-      "10+ years teaching at IGCSE and IB Schools",
-    ].map((point) => truncateText(point, 10)),
+      truncateText("M.Sc. in Agrochemicals & PG Diploma in HR Management", 50),
+      truncateText("10+ years teaching at IGCSE and IB Schools", 50),
+    ],
   },
   {
-    name: "Mr. Krishna Pillai",
-    position: "Head, Market Research",
+    name: truncateText("Mr. Krishna Pillai", 20),
+    position: truncateText("Head, Market Research", 25),
     description: truncateText(
       "MA & MBA Madurai Kamraj University, India. 15+ years in Industrial Supply chain production and planning.",
-      15
+      150
     ),
-    linkedin: "https://www.linkedin.com/in/krishna-pillai-padmanabhan/",
+    linkedin: "https://www.linkedin.com/in/alicejohnson/",
     imageUrl: KPillai,
     points: [
-      "MA & MBA Madurai Kamraj University, India",
-      "15+ years in Industrial Supply chain production",
-    ].map((point) => truncateText(point, 10)),
+      truncateText("MA & MBA Madurai Kamraj University, India", 50),
+      truncateText("15+ years in Industrial Supply chain production", 50),
+    ],
   },
   {
-    name: "Ms. Akankasha",
-    position: "Head, Operations Coordination",
+    name: truncateText("Ms. Akankasha", 20),
+    position: truncateText("Head, Operations", 25),
     description: truncateText(
       "M.Sc. in Food Science & Nutrition Allahabad University. 5+ years in global events management across countries.",
-      15
+      150
     ),
     linkedin: "https://www.linkedin.com/in/akanksha-chugh-974813284/",
     imageUrl: Akansha,
     points: [
-      "M.Sc. in Food Science & Nutrition Allahabad University",
-      "5+ years in global events management",
-    ].map((point) => truncateText(point, 10)),
+      truncateText(
+        "M.Sc. in Food Science & Nutrition Allahabad University, India",
+        50
+      ),
+      truncateText("5+ years in global events management", 50),
+    ],
   },
 ];
 
@@ -158,7 +162,7 @@ const SliderComponent: React.FC = () => {
           {teamMembers.map((item, index) => (
             <div key={index} className="flex justify-center">
               <div className="bg-white p-6 md:p-8 lg:p-10 rounded-lg shadow-lg max-w-xs flex flex-col items-center">
-                <div className="relative h-40 w-40 md:h-36 md:w-36 mb-6 flex items-center justify-center rounded-full overflow-hidden">
+                <div className="relative h-40 w-40 md:h-48 md:w-48 mb-6 flex items-center justify-center rounded-full overflow-hidden">
                   <Image
                     src={item.imageUrl}
                     alt={item.name}
@@ -166,7 +170,8 @@ const SliderComponent: React.FC = () => {
                     objectFit="contain"
                   />
                 </div>
-                <h1 className="text-xl md:text-2xl text-gray-900 font-bold mb-2 text-center">
+
+                <h1 className="text-xl md:text-2xl text-gray-900 font-boldmb-2 text-center">
                   {item.name}
                 </h1>
                 <p className="text-sm md:text-base text-center text-gray-600 mb-4">
@@ -204,7 +209,7 @@ const SliderComponent: React.FC = () => {
                   src={selectedMember.imageUrl}
                   alt={selectedMember.name}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit="cover"
                   className="rounded-full"
                 />
               </div>
