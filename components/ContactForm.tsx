@@ -59,7 +59,7 @@ export default function ContactForm() {
               href="mailto:info@skillnaav.com"
               className="text-white font-medium"
             >
-              info@skillnaav.com
+              skillnaav@gmail.com
             </a>
           </p>
         </div>
