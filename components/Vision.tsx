@@ -22,7 +22,7 @@ const Vision = () => {
           <img
             src={VisionImg.src}
             alt="VisionImg"
-            className="w-full h-auto lg:w-96 lg:h-auto rounded-lg"
+            className="w-full h-auto lg:w-auto lg:h-auto rounded-lg"
           />
         </div>
 

@@ -19,7 +19,7 @@ export default function ContactForm() {
   return (
     <div
       id="contacts"
-      className=" bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg overflow-hidden shadow-lg"
+      className=" bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg overflow-hidden shadow-lg my-16"
     >
       <div className="flex flex-col lg:flex-row">
         {/* Left Section */}
@@ -30,10 +30,10 @@ export default function ContactForm() {
           <p className="text-white text-lg mb-6 text-center">
             <br />
             <a
-              href="mailto:info@navigatebi.com"
+              href="mailto:info@skillnaav.com"
               className="text-white font-medium"
             >
-              info@navigatebi.com
+              info@skillnaav.com
             </a>
           </p>
         </div>
