@@ -1,5 +1,5 @@
 import React from "react";
-import VisionImg from "@/public/assets/Feature1Img.png";
+import VisionImg from "@/public/assets/canada_vision.jpg";
 
 const Vision = () => {
   const visionPoints = [
@@ -18,15 +18,15 @@ const Vision = () => {
       className="rounded-lg py-16 lg:py-24 bg-gradient-to-b from-purple-500 via-pink-500 to-red-500 my-16 text-white"
     >
       <div className="container mx-auto px-4 lg:px-20 flex flex-col lg:flex-row items-center">
-        <div className="lg:w-1/3 mb-8 lg:mb-0 lg:mr-8">
+        <div className="lg:w-1/2 mb-8 lg:mb-0 lg:mr-8">
           <img
             src={VisionImg.src}
-            alt="VisionImg"
-            className="w-full h-auto lg:w-auto lg:h-auto rounded-lg"
+            alt="Vision"
+            className="w-full h-auto rounded-lg"
           />
         </div>
 
-        <div className="lg:w-2/3">
+        <div className="lg:w-1/2">
           <h2 className="text-3xl lg:text-4xl font-bold text-center lg:text-left mb-8 lg:mb-12">
             Our Vision
           </h2>
@@ -36,11 +36,11 @@ const Vision = () => {
             and access to quality internships while supporting lifelong learning
             and skills development.
           </p>
-          <ul className="space-y-6 max-w-3xl mx-auto lg:mx-0">
+          <ul className="list-disc text-lg lg:text-xl max-w-3xl mx-auto lg:mx-0 pl-5">
             {visionPoints.map((point, index) => (
               <li
                 key={index}
-                className={`text-base lg:text-lg ${
+                className={`text-base mt-2 lg:mt-4 lg:text-lg ${
                   index % 4 === 0
                     ? "text-blue-300"
                     : index % 4 === 1
