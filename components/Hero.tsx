@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Gradient from "@/public/assets/Gradient.svg";
-import HeroImage from "@/public/assets/app_mockup.svg";
+import HeroImage from "@/public/assets/app_mockup.png";
 import Google from "@/public/assets/Google.svg";
 import Slack from "@/public/assets/Slack.svg";
 import Trustpilot from "@/public/assets/Trustpilot.svg";

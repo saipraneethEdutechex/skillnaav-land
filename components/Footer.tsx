@@ -63,7 +63,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Email Subscription */}
           <div className="md:col-span-1">
             <h5 className="font-semibold mb-4">Stay Informed</h5>
             <p className="text-sm text-gray-800 mb-4">
