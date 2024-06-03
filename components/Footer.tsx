@@ -1,9 +1,9 @@
 import Image from "next/image";
 import SkillNaavLogo from "@/public/assets/skillnaav_logo-250w.png";
-import FacebookIcon from "@/public/assets/Facebook.svg";
-import TwitterIcon from "@/public/assets/X.svg";
-import FeedIcon from "@/public/assets/Feed.svg";
-import LinkedinIcon from "@/public/assets/linkedin-svgrepo-com.svg";
+import FacebookIcon from "@/public/assets/facebook_black.png";
+import TwitterIcon from "@/public/assets/twitter.png";
+import FeedIcon from "@/public/assets/youtube.png";
+import LinkedinIcon from "@/public/assets/linkedin.png";
 import Link from "next/link";
 
 export default function Footer() {
