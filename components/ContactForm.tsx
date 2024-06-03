@@ -7,6 +7,8 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useRef<HTMLFormElement | null>(null);
 
@@ -29,9 +31,12 @@ export default function ContactForm() {
         .then(
           () => {
             console.log("SUCCESS!");
+            setIsSubmitted(true);
+            setError(null);
           },
           (error) => {
             console.log("FAILED...", error.text);
+            setError("Failed to send message. Please try again.");
           }
         );
     }
@@ -108,6 +113,12 @@ export default function ContactForm() {
           >
             Submit
           </button>
+          {isSubmitted && (
+            <p className="text-white text-center mt-4">
+              Message has been submitted!
+            </p>
+          )}
+          {error && <p className="text-red-500 text-center mt-4">{error}</p>}
         </form>
       </div>
     </div>
