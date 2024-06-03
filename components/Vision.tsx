@@ -1,5 +1,5 @@
 import React from "react";
-import VisionImg from "@/public/assets/canada_vision.jpg";
+import VisionImg from "@/public/assets/canada_vis.jpg";
 
 const Vision = () => {
   const visionPoints = [
