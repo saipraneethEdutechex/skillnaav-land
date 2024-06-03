@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import SkillNaavLogo from "@/public/assets/skillnaav_logo-250w.png";
 import FacebookIcon from "@/public/assets/facebook-custom.png";
@@ -8,6 +9,13 @@ import LinkedinIcon from "@/public/assets/linkedin_custom.png";
 import Link from "next/link";
 
 export default function Footer() {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const handleSubscribe = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setIsSubscribed(true);
+  };
+
   return (
     <footer className="bg-white text-gray-800 mt-10 py-12 border-t border-gray-200">
       <div className="container mx-auto px-4">
@@ -31,7 +39,7 @@ export default function Footer() {
                 href="mailto:info@skillnaav.com"
                 className="text-blue-500 hover:underline"
               >
-                skillnaav@gmail.com
+                info@skillnaav.com
               </a>
             </p>
           </div>
@@ -68,20 +76,19 @@ export default function Footer() {
             <p className="text-sm text-gray-800 mb-4">
               Subscribe to our newsletters to get the latest news and updates
             </p>
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4" onSubmit={handleSubscribe}>
               <input
                 type="email"
                 placeholder="Your email address"
                 className="py-2 px-3 text-sm text-gray-800 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
               />
-              <Link href="mailto:@skillnaav@gmail.com">
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
-                >
-                  Subscribe
-                </button>
-              </Link>
+              <button
+                type="submit"
+                className="px-6 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
+              >
+                {isSubscribed ? "Subscribed" : "Subscribe"}
+              </button>
             </form>
           </div>
         </div>

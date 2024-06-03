@@ -71,9 +71,9 @@ const Features = () => {
           />
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pl-12 sm:pr-8">
-          <h3 className="font-medium text-pink-600 lg:text-lg">
+          <div className="font-medium text-pink-600 lg:text-xl">
             AI-based Career Exploration
-          </h3>
+          </div>
           <h1 className="pt-4 text-2xl font-medium text-gray-900 lg:text-4xl lg:leading-none">
             Guided Career Paths with AI
           </h1>
@@ -126,7 +126,7 @@ const Features = () => {
           />
         </div>
         <div className="sm:w-1/2 lg:py-8 lg:pr-12">
-          <h3 className="font-medium text-green-600 lg:text-lg">
+          <h3 className="font-medium text-green-600 lg:text-xl">
             Internship Mapping
           </h3>
           <h1 className="pt-4 text-2xl font-medium text-gray-900 lg:text-4xl lg:leading-none">
