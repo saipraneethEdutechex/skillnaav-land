@@ -7,7 +7,7 @@ import RamK from "@/public/assets/ramK_img.png";
 import KPillai from "@/public/assets/krishnaPillai.jpeg";
 import Shweta from "@/public/assets/shwetaKinra.png";
 import Akansha from "@/public/assets/Akansha.jpeg";
-import Linkedin from "@/public/assets/linkedin.png";
+import Linkedin from "@/public/assets/linkedin_blue.png";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
