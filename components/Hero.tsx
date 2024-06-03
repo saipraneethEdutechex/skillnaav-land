@@ -43,7 +43,7 @@ const Hero = () => {
           <Image
             src={HeroImage}
             alt="hero image"
-            className=" h-[310px] sm:h-[400px] lg:mb-16 lg:h-auto lg:m-8 sm:p-16 sm:w-[70px] sm:mx-8 xl:w-[70%]"
+            className=" h-[310px] sm:-mb-20 sm:h-[400px] lg:mb-4 lg:h-auto xl:w-[70%]"
           />
           <div className="flex w-full flex-col items-center lg:container lg:flex-row lg:justify-between lg:px-20">
             <p className="text-[white] text-center text-[16px] lg:text-[18px]">
