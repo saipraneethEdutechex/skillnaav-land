@@ -31,7 +31,7 @@ export default function Footer() {
                 href="mailto:info@skillnaav.com"
                 className="text-blue-500 hover:underline"
               >
-                info@skillnaav.com
+                skillnaav@gmail.com
               </a>
             </p>
           </div>
