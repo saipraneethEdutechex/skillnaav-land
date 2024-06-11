@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: truncateText("Ms. Shweta Kinra", 20),
+    name: truncateText("Dr. Shweta Kinra", 20),
     position: truncateText("Head, University Outreach", 25),
     description: truncateText(
       "PhD in Textiles and Clothing, Delhi University, India. 10+ years in university research and teaching.",
@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: truncateText("Ms. Hem Ranjani", 20),
+    name: truncateText("Dr. Hem Ranjani", 20),
     position: truncateText("Head, HR & Schools BD", 25),
     description: truncateText(
       "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
@@ -87,7 +87,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: truncateText("Ms. Akankasha", 20),
+    name: truncateText("Dr. Akankasha", 20),
     position: truncateText("Head, Operations", 25),
     description: truncateText(
       "M.Sc. in Food Science & Nutrition Allahabad University. 5+ years in global events management across countries.",

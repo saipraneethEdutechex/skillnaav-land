@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: "Ms. Shweta Kinra",
+    name: "Dr. Shweta Kinra",
     position: "Head, University Outreach",
     description:
       "PhD in Textiles and Clothing, Delhi University, India. 10+ years in university research and teaching.",
@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: "Ms. Hem Ranjani",
+    name: "Dr. Hem Ranjani",
     position: "Head, HR & Schools BD",
     description:
       "M.Sc. in Agrochemicals & PG Diploma in HR Management. 10+ years teaching at IGCSE and IB Schools in Dubai & UAE.",
@@ -69,7 +69,7 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: "Ms. Akankasha Chugh",
+    name: "Dr. Akankasha Chugh",
     position: "Head, Operations Coordination",
     description:
       "M.Sc. in Food Science & Nutrition Allahabad University. 5+ years in global events management across countries.",
